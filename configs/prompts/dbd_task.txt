@@ -1,0 +1,7 @@
+### Task ###
+You will be given a dialogue history between Speaker A and Speaker B, along with a response that follows it.
+Your task is to classify the response into one of two labels: Dialogue Breakdown or No Dialogue Breakdown.
+Dialogue Breakdown refers to a situation where the flow of conversation becomes unnatural or incoherent.
+Provide the reasoning for your classification, and then output the label at the end.
+Start with ### Reason ### and provide a clear explanation for your classification decision, detailing why the response falls into the selected category.
+End with ### Label ### followed by the chosen label (Dialogue Breakdown or Not Dialogue Breakdown).

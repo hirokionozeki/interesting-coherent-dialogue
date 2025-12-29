@@ -1,0 +1,11 @@
+### Task ###
+You will be given a topic and one piece of knowledge related to that topic.
+Your task is to classify this piece of knowledge into one of three labels based on its level of interestingness: Good Trivia, Trivia, or Not Trivia.
+The definitions for each label are as follows:
+ - Good Trivia: The knowledge is an interesting fact that is unusual, unexpected, or unique.
+ - Trivia: The knowledge is not interesting fact that is unusual, unexpected, or unique.
+ - Not Trivia: The knowledge is a common, expected, or irrelevant fact.
+Provide the reasoning for your classification, and then output the label at the end.
+Start with ### Reason ### and provide a clear explanation for your classification decision, detailing why the knowledge falls into the selected category.
+End with ### Label ### followed by the chosen label (Good Trivia, Trivia, or Not Trivia).
+

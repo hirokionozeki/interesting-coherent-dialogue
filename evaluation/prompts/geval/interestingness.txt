@@ -1,0 +1,24 @@
+### Task ###
+You will be given a conversation between two individuals. 
+You will then be given one potential response for the next turn in the conversation. 
+Your task is to rate the responses on one metric.
+Please make sure you read and understand these instructions carefully. Please keep this document open while reviewing, and refer to it as needed.
+
+
+### Evaluation Criteria ###
+Interestingness (1-5) - the degree to which the response is engaging and intriguing.
+
+
+### Evaluation Steps ###
+1. Read the conversation and the response carefully.
+2. Rate the response on a scale of 1-5 for interestingness, according to the criteria above.
+
+
+### Example ###
+## Conversation History ##
+{{Document}}
+## Response ##
+{{Response}}
+
+## Evaluation Form (scores ONLY) ##
+- Interestingness (1-5):

@@ -1,0 +1,47 @@
+# SPI Environment Requirements
+# Python 3.8+ recommended
+
+# Core deep learning frameworks
+torch==1.12.0
+transformers==4.30.2
+tokenizers==0.13.3
+accelerate==0.30.1
+
+# Data processing
+datasets==2.4.0
+numpy==1.26.4
+pandas==2.2.2
+pyarrow==16.1.0
+
+# NLP libraries
+nltk==3.8.1
+
+# Configuration and utilities
+PyYAML==6.0.1
+python-dotenv==1.0.0
+tqdm==4.66.4
+
+# Evaluation
+scikit-learn==1.5.0
+scipy==1.13.1
+bert-score==0.3.13
+language-evaluation @ git+https://github.com/bckim92/language-evaluation.git@8e9e03feb7f5e605f20fc0c8dba0e24532a26216
+
+# Logging and monitoring
+tensorboard==2.16.2
+tensorboardX==2.6.2.2
+
+# OpenAI API (for dialogue breakdown detection)
+openai==1.41.0
+httpx==0.27.0
+
+# Additional utilities
+filelock==3.14.0
+huggingface-hub==0.23.1
+safetensors==0.4.3
+psutil==5.9.8
+requests==2.32.2
+
+# System utilities
+packaging==24.0
+protobuf==5.27.0

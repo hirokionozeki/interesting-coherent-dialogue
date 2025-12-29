@@ -1,0 +1,62 @@
+# SPI Baseline Configuration
+
+model:
+  name: spi
+  checkpoint: checkpoints/spi/best_model
+  base_model: facebook/bart-base
+
+  # SPI-specific model parameters
+  latent_size: 768
+  sample_latent: false
+  kn_selector: linear
+  target_kl: 1.0
+  attend_latent: false
+  attend_latent_w_self: false
+  fuse_z: null
+  cls_ratio: 1.0
+  no_kn_decode: false
+  use_feature: kn
+  use_z_for_cls: false
+  g_l_steps: 5
+  g_l_step_size: 0.3
+  verbose: false
+  add_z_mse: false
+  gen_with_noise: false
+  top_k_kn: 1
+  pseudo_confidence: 1.0
+  pseudo_label_only: false
+
+data:
+  corpus: wizard
+  split: test_random_split
+  # Use both seen and unseen data (concatenated) to match precomputed file indices
+  dataset_path:
+    - data/spi/wizard/origin/seen_full.json
+    - data/spi/wizard/origin/unseen_full.json
+
+inference:
+  batch_size: 1
+  max_length: 128
+  max_source_length: 512
+  max_target_length: 128
+  max_knowledge: 34
+
+variant: origin
+
+# All proposed methods disabled for baseline
+methods:
+  # SPI uses precomputed knowledge scores even for baseline
+  precomputed_file: data/spi/precomputed/model_pred_all_need_data.json
+
+  confidence_classification:
+    enabled: false
+
+  trivia_reranking:
+    enabled: false
+
+  breakdown_detection:
+    enabled: false
+
+output:
+  dir: results/spi/origin
+  save_intermediate: true

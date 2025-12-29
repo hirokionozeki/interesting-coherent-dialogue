@@ -1,0 +1,39 @@
+# GenKS Baseline Configuration
+
+model:
+  name: genks
+  checkpoint: checkpoints/wow-bart-large/4.pt
+  base_model: facebook/bart-large
+
+data:
+  corpus: wizard
+  # Process both seen and unseen splits sequentially
+  splits:
+    - seen_full
+    - unseen_full
+  dataset_path: data/genks/wizard
+  # Use {split} placeholder for split-specific files
+  psg_filter: checkpoints/psg_filter/wizard.{split}.0.json
+
+inference:
+  batch_size: 1
+  max_length: 128
+  num_beams: 1
+  do_sample: false
+
+variant: origin
+
+# All proposed methods disabled for baseline
+methods:
+  confidence_classification:
+    enabled: false
+
+  trivia_reranking:
+    enabled: false
+
+  breakdown_detection:
+    enabled: false
+
+output:
+  dir: results/genks/origin
+  save_intermediate: true

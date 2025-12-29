@@ -1,0 +1,53 @@
+# GenKS with Proposed Methods Configuration
+
+model:
+  name: genks
+  checkpoint: checkpoints/wow-bart-large/4.pt
+  base_model: facebook/bart-large
+
+data:
+  corpus: wizard
+  # Process both seen and unseen splits sequentially
+  splits:
+    - seen_full
+    - unseen_full
+  dataset_path: data/genks/wizard
+  # Use {split} placeholder for split-specific files
+  psg_filter: checkpoints/psg_filter/wizard.{split}.0.json
+
+inference:
+  batch_size: 1
+  max_length: 128
+  num_beams: 1
+  do_sample: false
+
+variant: ours
+
+# Proposed methods enabled
+methods:
+  confidence_classification:
+    enabled: true
+    # Thresholds for classification
+    conf_sum_prob: 0.8          # Top-3 sum probability threshold for Confident
+    conf_top1_ratio: 0.8         # Top-1 ratio in Top-3 for Confident
+    unconf_sum_prob: 0.65        # Top-3 sum probability threshold for Undecided
+    sum_any_kn_prob: 0.6         # Sum probability threshold for Unclear
+    second_first_diff_ratio: 0.3 # Second/First ratio threshold
+    third_second_diff_ratio: 0.5 # Third/Second ratio threshold
+    top_k_num: 3                 # Number of top candidates to consider
+
+  trivia_reranking:
+    enabled: true
+    # Use {split} placeholder for split-specific files
+    scores_file: data/genks/precomputed/{split}_triviascore.json
+
+  breakdown_detection:
+    enabled: true
+    # Use {split} placeholder for split-specific files
+    cache_file: data/genks/precomputed/{split}_dbd_cache.json
+    model: gpt-4o-2024-08-06
+    temperature: 0.0
+
+output:
+  dir: results/genks/ours
+  save_intermediate: true
