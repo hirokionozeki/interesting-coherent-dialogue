@@ -8,9 +8,9 @@ For citation information, please refer to the [Citation](#citation) section belo
 
 This project enhances knowledge-grounded dialogue systems through three key components:
 
-1. **Confidence Classification**: Categorizes knowledge selection confidence (Confident/Undecided/Unclear)
-2. **Trivia Score Reranking**: Reorders knowledge candidates by interestingness when confidence is low
-3. **Dialogue Breakdown Detection**: Filters incoherent responses using GPT-4o
+1. **Knowledge Filtering**: Select knowledge candidates that are highly relevant to the context
+2. **Knowledge Re-ranking**: Re-rank knowledge candidates based on their interestingness
+3. **Dialogue Breakdown Detection**: Detect dialogue breakdown to filter out contextually inappropriate responses
 
 **Key Feature**: Our method is **training-free** and can be applied to various knowledge-grounded dialogue models without additional training. The implementation demonstrates this by supporting two state-of-the-art baseline methods (GenKS and SPI), which require separate environments due to incompatible dependencies.
 
