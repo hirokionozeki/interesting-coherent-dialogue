@@ -3,4 +3,4 @@
 	url = https://github.com/sunnweiwei/GenKS.git
 [submodule "baselines/SPI"]
 	path = baselines/SPI
-	url = https://github.com/deqiankong/SPI.git
+	url = https://github.com/hirokionozeki/SPI.git

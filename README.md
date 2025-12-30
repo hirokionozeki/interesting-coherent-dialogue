@@ -41,6 +41,31 @@ The download includes:
 
 **Note**: SPI checkpoint (548MB) is downloaded separately from the original SPI repository to ensure proper attribution.
 
+## Installation
+
+### Clone the Repository
+
+This repository uses Git submodules for baseline implementations. Clone with submodules:
+
+```bash
+git clone --recursive https://github.com/hirokionozeki/interesting-coherent-dialogue.git
+cd interesting-coherent-dialogue
+```
+
+Or if you've already cloned the repository:
+
+```bash
+git submodule update --init --recursive
+```
+
+### About Baseline Submodules
+
+This project includes two baseline methods as Git submodules:
+- **GenKS** ([original repository](https://github.com/sunnweiwei/GenKS))
+- **SPI** (modified fork from [original repository](https://github.com/HKUST-KnowComp/SPI))
+
+**Note on SPI**: We use a modified fork of SPI that includes necessary changes for integration with this project. The modifications are minimal and only affect model loading and inference compatibility. The original SPI implementation remains unchanged in the upstream repository.
+
 ## Quick Start
 
 ### 1. Environment Setup
@@ -223,9 +248,14 @@ This project builds upon two state-of-the-art knowledge-grounded dialogue models
 
 - **GenKS**: [Generative Knowledge Selection for Knowledge-Grounded Dialogues](https://arxiv.org/abs/2304.04836) (EACL 2023)
   - Sun, W., Ren, P., & Ren, Z.
+  - Repository: https://github.com/sunnweiwei/GenKS
 
 - **SPI**: [Diverse and Faithful Knowledge-Grounded Dialogue Generation via Sequential Posterior Inference](https://arxiv.org/abs/2306.01153) (ICML 2023)
   - Xu, Y., Kong, D., Xu, D., Ji, Z., Pang, B., Fung, P., & Wu, Y. N.
+  - Original repository: https://github.com/HKUST-KnowComp/SPI
+  - Modified fork (used in this project): https://github.com/hirokionozeki/SPI
+
+**Note**: Minor modifications were made to the SPI implementation to enable integration with our proposed methods. These changes are isolated to the forked repository and do not affect the original implementation.
 
 For complete licensing and attribution information, see [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
